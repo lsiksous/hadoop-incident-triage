@@ -1,6 +1,7 @@
 streamlit
-langchain
-langchain-community
+langchain>=0.1.20
+langchain-community>=0.0.30
+langchain-text-splitters>=0.0.1
 faiss-cpu
 fastembed
 pydantic
