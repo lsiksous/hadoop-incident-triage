@@ -1,18 +1,27 @@
 .PHONY: venv install run pull-model
 
-VENV=.venv
-PY=$(VENV)/bin/python
-PIP=$(VENV)/bin/pip
+VENV := .venv
+
+# Détection simple Windows vs Unix
+ifeq ($(OS),Windows_NT)
+	PY         := $(VENV)/Scripts/python.exe
+	PIP        := $(VENV)/Scripts/pip.exe
+	STREAMLIT  := $(VENV)/Scripts/streamlit.exe
+else
+	PY         := $(VENV)/bin/python
+	PIP        := $(VENV)/bin/pip
+	STREAMLIT  := $(VENV)/bin/streamlit
+endif
 
 venv:
 	python3 -m venv $(VENV)
 
 install: venv
-	$(PIP) install -U pip
-	$(PIP) install -r requirements.txt
+	$(PY) -m pip install -U pip
+	$(PY) -m pip install -r requirements.txt
 
 pull-model:
 	ollama pull qwen2.5:1.5b
 
 run:
-	$(VENV)/bin/streamlit run app.py
+	$(STREAMLIT) run app.py
