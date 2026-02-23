@@ -27,6 +27,8 @@ Objectifs principaux :
 
 Sous Windows, le projet est pensé pour fonctionner via **Git Bash** (par exemple dans Wave Terminal).
 
+Les jeux de logs Hadoop utilisés pour le POC peuvent, par exemple, être extraits depuis le projet **[Loghub](https://github.com/logpai/loghub)** au format texte brut. Un script d’aide est fourni dans le répertoire `scripts/` pour automatiser le téléchargement / l’extraction de certains jeux de logs publics.
+
 ---
 
 ## 2. Installation
