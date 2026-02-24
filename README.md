@@ -64,7 +64,7 @@ python -m pip install -r requirements.txt
 
 ### 2.3. Télécharger le modèle Ollama
 
-Assure‑toi qu’Ollama est démarré, puis :
+S'assurer qu’Ollama est démarré, puis :
 
 ```bash
 ollama pull qwen2.5:1.5b
@@ -80,14 +80,14 @@ Avec le venv **activé** :
 streamlit run app.py
 ```
 
-Ou, si tu préfères appeler explicitement l’exécutable du venv :
+Ou, si on préfère appeler explicitement l’exécutable du venv :
 
 ```bash
 .venv/Scripts/streamlit.exe run app.py      # Windows + Git Bash
 # .venv/bin/streamlit run app.py           # Linux / macOS
 ```
 
-Streamlit t’indiquera l’URL locale, typiquement :
+Streamlit indiquera l’URL locale, typiquement :
 
 - http://localhost:8501
 
@@ -157,7 +157,7 @@ Streamlit t’indiquera l’URL locale, typiquement :
 
 ### `ModuleNotFoundError: No module named 'langchain_text_splitters'`
 
-Vérifie que les dépendances sont bien installées dans le bon venv :
+Vérifier que les dépendances sont bien installées dans le bon venv :
 
 ```bash
 source .venv/Scripts/activate
@@ -166,9 +166,9 @@ python -m pip install -r requirements.txt
 
 ### `ollama: command not found` ou problème de modèle
 
-- Vérifie qu’Ollama est installé et lancé.
-- Vérifie que `ollama` est dans le `PATH`.
-- Vérifie que le modèle `qwen2.5:1.5b` est bien présent :
+- Vérifier qu’Ollama est installé et lancé.
+- Vérifier que `ollama` est dans le `PATH`.
+- Vérifier que le modèle `qwen2.5:1.5b` est bien présent :
 
   ```bash
   ollama list
@@ -178,4 +178,4 @@ python -m pip install -r requirements.txt
 
 ## 8. Licence
 
-À compléter avec la licence souhaitée (MIT, Apache 2.0, etc.).
+Apache 2.0
