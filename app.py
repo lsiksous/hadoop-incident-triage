@@ -164,7 +164,38 @@ st.title("Hadoop Incident Triage (POC) — Logs publics, LLM local")
 
 with st.sidebar:
     st.header("Réglages")
-    model = st.text_input("Modèle Ollama", value="qwen2.5:1.5b")
+
+    # Discover available Ollama models dynamically
+    import subprocess
+
+    def get_ollama_models() -> list[str]:
+        try:
+            out = subprocess.check_output(["ollama", "list"], text=True)
+        except Exception:
+            # Fallback: return a sensible default if `ollama list` fails
+            return ["gpt-oss:20b"]
+
+        models = []
+        for line in out.splitlines()[1:]:  # skip header line
+            parts = line.split()
+            if parts:
+                models.append(parts[0])
+        return models or ["gpt-oss:20b"]
+
+    available_models = get_ollama_models()
+
+    # Prefer a small, fast default if present
+    preferred_default = "qwen2.5:1.5b"
+    if preferred_default in available_models:
+        default_index = available_models.index(preferred_default)
+    else:
+        default_index = 0
+
+    model = st.selectbox(
+        "Modèle Ollama",
+        options=available_models,
+        index=default_index,
+    )
     chunk_size = st.slider("Chunk size", 300, 1200, 600, 50)
     chunk_overlap = st.slider("Chunk overlap", 0, 300, 80, 10)
     topk = st.slider("TopK RAG", 2, 12, 6, 1)
