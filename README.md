@@ -178,4 +178,7 @@ python -m pip install -r requirements.txt
 
 ## 8. Licence
 
-Apache 2.0
+Ce projet est distribué sous licence **Apache License 2.0**.
+
+- Texte complet : https://www.apache.org/licenses/LICENSE-2.0
+
